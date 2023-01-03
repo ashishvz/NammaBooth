@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/voterHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/epilogue_semi_bold"
+            android:text="@string/voter_slip"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/voterSlipDivider"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@id/voterHeading"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/black" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/voterName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/voterSlipDivider"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/epilogue_regular"
+            android:text="Dear, Ashish Zingade Your details of voting"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/voterPartNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/voterName"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/epilogue_regular"
+            android:text="Part No: 1"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/voterNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/voterPartNo"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/epilogue_regular"
+            android:text="Voter No: 62"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/voterBooth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/voterNo"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/epilogue_regular"
+            android:text="Booth: Gandhi Vidyalaya Kannada And Tamil Primary School Lottagolla Halli"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/voterTimeDivider"
+            android:layout_width="150dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/voterBooth"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/black" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/votingDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/voterTimeDivider"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/epilogue_regular"
+            android:text="Voting Date: 13-Feb-2016. Time 7AM to 5PM"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/voteCasting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/votingDate"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/epilogue_semi_bold"
+            android:text="Please cast your valuable vote to Congress - C.K.Abdul Rahaman Sharief"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/candidateSerialNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/voteCasting"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/epilogue_regular"
+            android:text="Serial No: 1"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_below="@id/candidateSerialNo"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/congress_logo" />
+
+    </RelativeLayout>
+</layout>

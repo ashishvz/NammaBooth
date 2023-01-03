@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Namma Booth</string>
+    <string name="let_s_start">Let\'s start</string>
+    <string name="enter_the_phone_number_to_verify">Enter the phone number to verify</string>
+    <string name="phone_number">Phone Number (+91)</string>
+    <string name="get_otp">Get OTP</string>
+    <string name="enter_the_otp_sent_to_your_phone">Enter the OTP sent to your phone</string>
+    <string name="verify_otp">Verify OTP</string>
+    <string name="one_time_password_otp">One Time Password (OTP)</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="home">Home</string>
+    <string name="voter_s_list">Voter\'s List</string>
+    <string name="downloading_voter_s_list_please_wait">Downloading voter\'s list. Please wait</string>
+    <string name="download_complete">Download completed. Saving the data..</string>
+    <string name="search_by">Search by name or voter id</string>
+    <string name="search">Search</string>
+    <string name="voter_id">Voter Id:</string>
+    <string name="voter_name">Voter Name:</string>
+    <string name="section_name">Section Name:</string>
+    <string name="mobile_no">Mobile No:</string>
+    <string name="update_phone_no">Update Phone No</string>
+    <string name="send_voter_slip">Send Voter Slip</string>
+    <string name="voter_slip">Voter Slip</string>
+    <string name="no_voter_s_found">No voter\'s found</string>
+</resources>
