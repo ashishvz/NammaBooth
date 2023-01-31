@@ -26,7 +26,7 @@
     <string name="verify_your_phone_number">Verify your phone number</string>
     <string name="survey">Survey</string>
     <string name="voter_status">Voter Status</string>
-    <string name="reports">Reports</string>
+    <string name="reports">Booth wise reports</string>
     <string name="profile">Profile</string>
     <string name="refresh_voter_list">Refresh Voter List</string>
     <string name="logout">Logout</string>
@@ -57,5 +57,6 @@
     <string name="select_any_one_of_the_below_survey">Select any one of the below survey</string>
     <string name="send_survey">Send Survey</string>
     <string name="sending_slip">Sending slip. Please wait!</string>
-    <string name="whatsapp_survey">Whatsapp Survey</string>
+    <string name="whatsapp_survey">Voters Whatsapp Survey</string>
+    <string name="previous_election_result_data">Previous election result data</string>
 </resources>

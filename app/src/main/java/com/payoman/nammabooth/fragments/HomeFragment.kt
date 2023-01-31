@@ -73,10 +73,10 @@ class HomeFragment : Fragment() {
             profileCard.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToProfileFragment())
             }
-            updateVoterPhoneCard.setOnClickListener {
+            /*updateVoterPhoneCard.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToUpdatePhoneNumberFragment())
-            }
-            surveyCard.setOnClickListener {
+            }*/
+            whatsappSurveyCard.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSurveyFragment())
             }
             Glide.with(requireContext()).load(candidate.candidateImageUrl).placeholder(

@@ -147,7 +147,7 @@
 
                     </com.google.android.material.card.MaterialCardView>
 
-                    <com.google.android.material.card.MaterialCardView
+                    <!--<com.google.android.material.card.MaterialCardView
                         android:id="@+id/updateVoterPhoneCard"
                         android:layout_width="0dp"
                         android:layout_height="180dp"
@@ -186,10 +186,51 @@
                                 android:textSize="18sp" />
                         </RelativeLayout>
 
-                    </com.google.android.material.card.MaterialCardView>
+                    </com.google.android.material.card.MaterialCardView>-->
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/surveyCard"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/updatePhoneIcon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/ic_survey" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/updatePhoneIcon"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/epilogue_medium"
+                                android:gravity="center"
+                                android:maxLines="2"
+                                android:padding="5dp"
+                                android:text="@string/survey"
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/whatsappSurveyCard"
                         android:layout_width="0dp"
                         android:layout_height="180dp"
                         android:layout_row="1"
@@ -211,7 +252,7 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginStart="25dp"
                                 android:layout_marginTop="20dp"
-                                android:src="@drawable/ic_survey" />
+                                android:src="@drawable/ic_whatsapp_survey" />
 
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="match_parent"
@@ -345,7 +386,7 @@
                                 android:gravity="center"
                                 android:maxLines="2"
                                 android:padding="5dp"
-                                android:text="Previous Election Data"
+                                android:text="@string/previous_election_result_data"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
                         </RelativeLayout>
