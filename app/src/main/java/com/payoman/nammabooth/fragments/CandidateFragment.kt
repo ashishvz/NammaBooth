@@ -8,12 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import androidx.transition.TransitionInflater
+import com.bumptech.glide.Glide
 import com.payoman.nammabooth.R
 import com.payoman.nammabooth.adapters.CandidateNewsLetterAdapter
 import com.payoman.nammabooth.adapters.CandidateUrlAdapter
@@ -24,6 +26,7 @@ import com.payoman.nammabooth.models.CandidateUrl
 import com.payoman.nammabooth.viewmodels.CandidateViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.runBlocking
+import java.util.*
 
 class CandidateFragment: Fragment(), OnClickListener {
 
@@ -77,6 +80,15 @@ class CandidateFragment: Fragment(), OnClickListener {
                     }
                 }
             }
+            Glide.with(requireContext()).load(candidate.candidateImageUrl).placeholder(
+                AppCompatResources.getDrawable(
+                    requireContext(),
+                    R.drawable.ic_candidate
+                )
+            ).error(AppCompatResources.getDrawable(requireContext(), R.drawable.candidate))
+                .into(candidateImageView)
+            candidateName.text = candidate.candidateName
+            candidateDesc.text = String.format(Locale.ENGLISH, "%s, %s", candidate.designation, candidate.constituencyName)
             if (newLetterList.size > 0) {
                 adapter = CandidateNewsLetterAdapter(requireContext(), newLetterList, this@CandidateFragment)
                 newsLetterRecycler.layoutManager = LinearLayoutManager(requireContext())

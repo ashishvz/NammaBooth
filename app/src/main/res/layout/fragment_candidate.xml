@@ -9,14 +9,15 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:id="@+id/candidateBackgroundImage"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="500dp"
                 android:alpha="0.15"
-                android:src="@drawable/congress_logo" />
+                android:src="@drawable/jds_logo"
+                android:layout_centerInParent="true"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/candidateName"
@@ -27,7 +28,6 @@
                 android:fontFamily="@font/epilogue_bold"
                 android:gravity="center"
                 android:maxLines="2"
-                android:text="D. K. Shivakumar"
                 android:textColor="@color/primary_dark"
                 android:textSize="24sp" />
 
@@ -39,7 +39,6 @@
                 android:layout_centerHorizontal="true"
                 android:fontFamily="@font/epilogue_regular"
                 android:gravity="center"
-                android:text="KPPC President, Constitunecy-Kanakpura"
                 android:textColor="@color/primary_dark"
                 android:textSize="16sp" />
 

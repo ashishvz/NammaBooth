@@ -106,7 +106,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/epilogue_semi_bold"
-            android:text="Please cast your valuable vote to Congress - C.K.Abdul Rahaman Sharief"
+            android:text="Please cast your valuable vote to JDS - KumarSwamy"
             android:textColor="@color/black"
             android:textSize="20sp" />
 
@@ -127,7 +127,7 @@
             android:layout_height="70dp"
             android:layout_below="@id/candidateSerialNo"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/congress_logo" />
+            android:src="@drawable/jds_logo" />
 
     </RelativeLayout>
 </layout>

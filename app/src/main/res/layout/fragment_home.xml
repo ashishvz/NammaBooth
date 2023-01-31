@@ -7,106 +7,100 @@
         android:layout_height="match_parent"
         android:layout_marginBottom="10dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="277dp"
-            android:layout_marginTop="-6dp"
-            android:src="@drawable/jds_banner" />
-
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="438dp"
-            android:layout_marginTop="320dp"
-            android:background="@drawable/round_background" />
+            android:layout_height="wrap_content">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/profileCard"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:background="?attr/selectableItemBackground"
-                app:cardBackgroundColor="@color/primary_light"
-                app:cardCornerRadius="30dp">
-
-                <ImageView
-                    android:id="@+id/profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_profile_48" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/candidateImageContainer"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="260dp"
-                android:transitionName="candidateImageCard"
-                app:cardCornerRadius="50dp"
-                app:cardElevation="4dp"
-                app:strokeColor="@color/background_grey"
-                app:strokeWidth="2dp">
-
-                <ImageView
-                    android:id="@+id/candidateImageView"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:src="@drawable/candidate" />
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/candidateName"
-                android:layout_width="250dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/candidateImageContainer"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="@font/epilogue_bold"
-                android:gravity="center"
-                android:maxLines="2"
-                android:textColor="@color/primary_dark"
-                android:textSize="24sp" />
-
-            <com.google.android.material.textview.MaterialTextView
-                android:id="@+id/candidateDesc"
-                android:layout_width="320dp"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/candidateName"
-                android:layout_centerHorizontal="true"
-                android:fontFamily="@font/epilogue_regular"
-                android:gravity="center"
-                android:textColor="@color/primary_dark"
-                android:textSize="16sp" />
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:layout_below="@id/candidateDesc"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp" />
+                android:layout_height="438dp"
+                android:layout_marginTop="150dp"
+                android:background="@drawable/round_background" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/profileCard"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="?attr/selectableItemBackground"
+                    app:cardBackgroundColor="@color/primary_light"
+                    app:cardCornerRadius="30dp">
+
+                    <ImageView
+                        android:id="@+id/profile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_profile_48" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/candidateImageContainer"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="100dp"
+                    android:transitionName="candidateImageCard"
+                    app:cardCornerRadius="50dp"
+                    app:cardElevation="4dp"
+                    app:strokeColor="@color/background_grey"
+                    app:strokeWidth="2dp">
+
+                    <ImageView
+                        android:id="@+id/candidateImageView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:src="@drawable/candidate" />
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/candidateName"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/candidateImageContainer"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/epilogue_bold"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="24sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/candidateDesc"
+                    android:layout_width="320dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/candidateName"
+                    android:layout_centerHorizontal="true"
+                    android:fontFamily="@font/epilogue_regular"
+                    android:gravity="center"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="16sp" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_below="@id/candidateDesc"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp" />
 
                 <GridLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/viewPager"
                     android:columnCount="2"
                     android:rowCount="3"
-                    android:useDefaultMargins="true"
-                    android:layout_below="@id/viewPager">
+                    android:useDefaultMargins="true">
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/voterListCard"
@@ -148,6 +142,47 @@
                     </com.google.android.material.card.MaterialCardView>
 
                     <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/surveyCard"
+                        android:layout_width="0dp"
+                        android:layout_height="180dp"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:layout_columnWeight="1"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
+                        app:cardCornerRadius="8dp"
+                        app:cardElevation="8dp">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:id="@+id/updatePhoneIcon"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerHorizontal="true"
+                                android:layout_marginStart="25dp"
+                                android:layout_marginTop="20dp"
+                                android:src="@drawable/ic_survey" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/updatePhoneIcon"
+                                android:layout_centerVertical="true"
+                                android:fontFamily="@font/epilogue_medium"
+                                android:gravity="center"
+                                android:maxLines="2"
+                                android:padding="5dp"
+                                android:text="@string/survey"
+                                android:textColor="@color/black"
+                                android:textSize="18sp" />
+                        </RelativeLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!--<com.google.android.material.card.MaterialCardView
                         android:id="@+id/updateVoterPhoneCard"
                         android:layout_width="0dp"
                         android:layout_height="180dp"
@@ -186,10 +221,10 @@
                                 android:textSize="18sp" />
                         </RelativeLayout>
 
-                    </com.google.android.material.card.MaterialCardView>
+                    </com.google.android.material.card.MaterialCardView>-->
 
                     <com.google.android.material.card.MaterialCardView
-                        android:id="@+id/surveyCard"
+                        android:id="@+id/whatsappSurveyCard"
                         android:layout_width="0dp"
                         android:layout_height="180dp"
                         android:layout_row="1"
@@ -211,7 +246,7 @@
                                 android:layout_centerHorizontal="true"
                                 android:layout_marginStart="25dp"
                                 android:layout_marginTop="20dp"
-                                android:src="@drawable/ic_survey" />
+                                android:src="@drawable/ic_whatsapp_survey" />
 
                             <com.google.android.material.textview.MaterialTextView
                                 android:layout_width="match_parent"
@@ -345,16 +380,14 @@
                                 android:gravity="center"
                                 android:maxLines="2"
                                 android:padding="5dp"
-                                android:text="Previous Election Data"
+                                android:text="@string/previous_election_result_data"
                                 android:textColor="@color/black"
                                 android:textSize="18sp" />
                         </RelativeLayout>
 
                     </com.google.android.material.card.MaterialCardView>
-
                 </GridLayout>
-
+            </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
     </ScrollView>
 </layout>

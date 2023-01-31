@@ -218,7 +218,7 @@ class VerifyOtpFragment : Fragment() {
             val preference = AppUtils.DataStorePreference.getPartNosFromDataStorePreference(otpViewModel.provideDataStoreInstance()).first()
             getCandidateDetails.getCandidateDetails(
                 preference.constituencyNumber,
-                "1",
+                "2",
                 AppUtils.DataStorePreference.getTokenFromDataStorePreference(otpViewModel.provideDataStoreInstance()).first().token
             ).enqueue(
                 object : Callback<CandidateResponse> {
