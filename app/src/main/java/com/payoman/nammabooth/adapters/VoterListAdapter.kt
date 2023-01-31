@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.payoman.nammabooth.R
@@ -27,6 +29,22 @@ class VoterListAdapter(
                 voterName.text = String.format(Locale.ENGLISH, "%s(%s)", voter.voterNameEn ?: "NA", voter.voterNameKan ?: "NA")
                 voterSectionName.text = String.format(Locale.ENGLISH, "%s(%s)", voter.sectionNameEn ?: "NA", voter.sectionNameKan ?: "NA")
                 voterMobileNumber.text = if (voter.mobileNo.isNullOrBlank()) "NA" else voter.mobileNo
+                voterAge.text = String.format(Locale.ENGLISH, "%s %s", voter.age, "years")
+                voterGender.text = voter.sex
+                voterHouseNo.text = voter.houseNoEn
+                expandImageView.setOnClickListener {
+                    if (gridBottom.isVisible) {
+                        gridBottom.visibility = View.GONE
+                        voterCard.strokeColor = context.getColor(R.color.white)
+                        voterCard.strokeWidth = 0
+                        expandImageView.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_arrow_down_24))
+                    } else {
+                        gridBottom.visibility = View.VISIBLE
+                        voterCard.strokeColor = context.getColor(R.color.secondary_light)
+                        voterCard.strokeWidth = 2
+                        expandImageView.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.ic_arrow_up_24))
+                    }
+                }
             }
         }
 

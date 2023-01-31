@@ -7,13 +7,15 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStoreFile
-import com.payoman.nammabooth.database.UserOperation
-import com.payoman.nammabooth.database.Voter
-import com.payoman.nammabooth.database.VoterOperation
-import com.payoman.nammabooth.repository.VoterRepository
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.payoman.nammabooth.apiOperations.SurveyApiOperation
+import com.payoman.nammabooth.apiOperations.UpdatePhoneNumberApiOperation
+import com.payoman.nammabooth.apiOperations.VoterApiOperation
+import com.payoman.nammabooth.database.*
+import com.payoman.nammabooth.repository.*
 import com.payoman.nammabooth.utils.Constants
-import com.payoman.nammabooth.viewmodels.OtpViewModel
-import com.payoman.nammabooth.viewmodels.VoterListViewModel
+import com.payoman.nammabooth.viewmodels.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -65,8 +67,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideOtpViewModel(dataStore: DataStore<Preferences>, voterOperation: VoterOperation): OtpViewModel {
-        return OtpViewModel(dataStore, voterOperation)
+    fun provideOtpViewModel(dataStore: DataStore<Preferences>, voterOperation: VoterOperation, candidateOperation: CandidateOperation): OtpViewModel {
+        return OtpViewModel(dataStore, voterOperation, candidateOperation)
     }
 
     @Provides
@@ -93,13 +95,97 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideVoterRepository(voterOperation: VoterOperation): VoterRepository {
-        return VoterRepository(voterOperation)
+    fun provideVoterRepository(voterOperation: VoterOperation, voterApiOperation: VoterApiOperation): VoterRepository {
+        return VoterRepository(voterOperation, voterApiOperation)
     }
 
     @Provides
     @Singleton
     fun provideVoterListViewModel(voterRepository: VoterRepository, dataStore: DataStore<Preferences>): VoterListViewModel {
         return VoterListViewModel(voterRepository, dataStore)
+    }
+
+    @Provides
+    @Singleton
+    fun provideDataStorePreferenceViewModel(dataStore: DataStore<Preferences>): DataStorePreferenceViewModel {
+        return DataStorePreferenceViewModel(dataStore)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCandidateOperation(realmConfiguration: RealmConfiguration): CandidateOperation {
+        return CandidateOperation(realmConfiguration)
+    }
+
+    @Provides
+    @Singleton
+    fun provideHomeViewModel(realmConfiguration: RealmConfiguration, candidateOperation: CandidateOperation): HomeViewModel {
+        return HomeViewModel(realmConfiguration, candidateOperation)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCandidateRepository(candidateOperation: CandidateOperation): CandidateRepository {
+        return CandidateRepository(candidateOperation)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUpdatePhoneOperation(realmConfiguration: RealmConfiguration): UpdatePhoneOperation {
+        return UpdatePhoneOperation(realmConfiguration)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUpdatePhoneNumberRepository(updatePhoneOperation: UpdatePhoneOperation, updatePhoneNumberApiOperation: UpdatePhoneNumberApiOperation): UpdatePhoneNumberRepository {
+        return UpdatePhoneNumberRepository(updatePhoneOperation, updatePhoneNumberApiOperation)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUpdatePhoneNumberApiOperation(retrofit: Retrofit, dataStorePreferenceViewModel: DataStorePreferenceViewModel): UpdatePhoneNumberApiOperation {
+        return UpdatePhoneNumberApiOperation(retrofit, dataStorePreferenceViewModel)
+    }
+
+    @Provides
+    @Singleton
+    fun provideVoterApiOperation(retrofit: Retrofit, dataStore: DataStore<Preferences>): VoterApiOperation {
+        return VoterApiOperation(retrofit, dataStore)
+    }
+
+    @Provides
+    @Singleton
+    fun provideUpdatePhoneViewModel(updatePhoneNumberRepository: UpdatePhoneNumberRepository, voterRepository: VoterRepository): UpdatePhoneNumberViewModel {
+        return UpdatePhoneNumberViewModel(updatePhoneNumberRepository, voterRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGenealogyRepository(voterOperation: VoterOperation): GenealogyRepository {
+        return GenealogyRepository(voterOperation)
+    }
+
+    @Provides
+    @Singleton
+    fun provideGenealogyViewModel(genealogyRepository: GenealogyRepository): GenealogyViewModel {
+        return GenealogyViewModel(genealogyRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSurveyApiOperation(retrofit: Retrofit): SurveyApiOperation {
+        return SurveyApiOperation(retrofit)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSurveyRepository(surveyApiOperation: SurveyApiOperation): SurveyRepository {
+        return SurveyRepository(surveyApiOperation)
+    }
+
+    @Provides
+    @Singleton
+    fun provideSurveyViewModel(surveyRepository: SurveyRepository): SurveyViewModel {
+        return SurveyViewModel(surveyRepository)
     }
 }

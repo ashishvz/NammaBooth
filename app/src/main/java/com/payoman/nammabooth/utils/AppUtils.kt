@@ -65,13 +65,17 @@ class AppUtils {
         suspend fun savePartNosToDataStorePreference(partNosPreference: PartNoPreference, dataStore: DataStore<Preferences>) {
             dataStore.edit {
                 it[Constants.PART_NO] = partNosPreference.partNos
+                it[Constants.CONSTITUENCY_NUMBER] = partNosPreference.constituencyNumber
+                it[Constants.AGENT_NAME] = partNosPreference.boothAgentName
             }
         }
 
         fun getPartNosFromDataStorePreference(dataStore: DataStore<Preferences>): kotlinx.coroutines.flow.Flow<PartNoPreference> =
             dataStore.data.map {
                 PartNoPreference(
-                    partNos = it[Constants.PART_NO] ?: ""
+                    partNos = it[Constants.PART_NO] ?: "",
+                    constituencyNumber = it[Constants.CONSTITUENCY_NUMBER] ?: "",
+                    boothAgentName = it[Constants.AGENT_NAME] ?: ""
                 )
             }
 
@@ -100,6 +104,18 @@ class AppUtils {
                 false
             }
             return isInstalled
+        }
+    }
+
+    object InternetCheckUtils {
+        fun isConnected(): Boolean {
+            return try {
+                val command = "ping -c 1 google.com"
+                Runtime.getRuntime().exec(command).waitFor() == 0
+            } catch (e: Exception) {
+                e.printStackTrace();
+                false
+            }
         }
     }
 

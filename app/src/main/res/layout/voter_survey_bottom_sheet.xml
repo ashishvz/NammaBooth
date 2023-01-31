@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            app:dividerColor="@color/primary_dark"
+            app:dividerThickness="3dp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/voterHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/epilogue_bold"
+            android:padding="10dp"
+            android:text="@string/voter_details"
+            android:textColor="@color/primary_light"
+            android:textSize="24sp"
+            android:layout_marginStart="10dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/voterNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/voterHeading"
+            android:fontFamily="@font/epilogue_regular"
+            android:padding="10dp"
+            android:text="@string/name_voter_id"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginStart="10dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/voterDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/voterHeading"
+            android:layout_toEndOf="@id/voterNameTxt"
+            android:fontFamily="@font/epilogue_semi_bold"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/voterPhoneNumberTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/voterDetail"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/epilogue_regular"
+            android:padding="10dp"
+            android:text="@string/phone_number_colon"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:layout_marginStart="10dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/voterPhoneNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/voterDetail"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@id/voterPhoneNumberTxt"
+            android:fontFamily="@font/epilogue_semi_bold"
+            android:padding="10dp"
+            android:textColor="@color/black"
+            android:textSize="18sp" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/loadingProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/voterPhoneNumber"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:indeterminate="true"
+            android:indeterminateBehavior="cycle"
+            android:indeterminateOnly="true"
+            android:indeterminateTint="@color/primary_dark" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/loadingProgressBar"
+            android:orientation="vertical">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/initiateSurveyButton"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/primary_light"
+                android:drawableEnd="@drawable/ic_survey_18"
+                android:drawableTint="@color/background_grey"
+                android:fontFamily="@font/epilogue_regular"
+                android:padding="5dp"
+                android:text="@string/initiate_survey"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:cornerRadius="10dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</layout>

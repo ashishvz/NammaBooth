@@ -23,16 +23,28 @@
             android:id="@+id/action_verifyOtpFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/verifyOtpFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.payoman.nammabooth.fragments.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_voterListFragment"
             app:destination="@id/voterListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_candidateFragment"
+            app:destination="@id/candidateFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_updatePhoneNumberFragment"
+            app:destination="@id/updatePhoneNumberFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_surveyFragment"
+            app:destination="@id/surveyFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -43,17 +55,90 @@
             android:id="@+id/action_splashFragment_to_otpFragment"
             app:destination="@id/otpFragment"
             app:popUpTo="@id/splashFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
             app:destination="@id/homeFragment"
             app:popUpTo="@id/splashFragment"
-            app:popUpToInclusive="true"/>
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/voterListFragment"
         android:name="com.payoman.nammabooth.fragments.VoterListFragment"
         android:label="VoterListFragment"
-        tools:layout="@layout/fragment_voter_list"/>
+        tools:layout="@layout/fragment_voter_list" >
+        <action
+            android:id="@+id/action_voterListFragment_to_genealogyFragment"
+            app:destination="@id/genealogyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.payoman.nammabooth.fragments.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_profile_setting">
+        <action
+            android:id="@+id/action_profileFragment_to_otpFragment"
+            app:destination="@id/otpFragment"
+            app:popUpTo="@id/profileFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/candidateFragment"
+        android:name="com.payoman.nammabooth.fragments.CandidateFragment"
+        android:label="CandidateFragment"
+        tools:layout="@layout/fragment_candidate">
+        <action
+            android:id="@+id/action_candidateFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updatePhoneNumberFragment"
+        android:name="com.payoman.nammabooth.fragments.UpdatePhoneNumberFragment"
+        android:label="UpdatePhoneNumberFragment"
+        tools:layout="@layout/fragment_voter_list">
+        <action
+            android:id="@+id/action_updatePhoneNumberFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/genealogyFragment"
+        android:name="com.payoman.nammabooth.fragments.GenealogyFragment"
+        android:label="GenealogyFragment"
+        tools:layout="@layout/fragment_genealogy">
+        <action
+            android:id="@+id/action_genealogyFragment_to_voterListFragment"
+            app:destination="@id/voterListFragment" />
+        <argument
+            android:name="voterId"
+            app:argType="string"
+            app:nullable="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/surveyFragment"
+        android:name="com.payoman.nammabooth.fragments.SurveyFragment"
+        android:label="SurveyFragment"
+        tools:layout="@layout/fragment_voter_list">
+        <action
+            android:id="@+id/action_surveyFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_surveyFragment_to_surveyListFragment"
+            app:destination="@id/surveyListFragment"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/surveyListFragment"
+        android:name="com.payoman.nammabooth.fragments.SurveyListFragment"
+        android:label="SurveyListFragment"
+        tools:layout="@layout/dialog_survey">
+        <action
+            android:id="@+id/action_surveyListFragment_to_surveyFragment"
+            app:destination="@id/surveyFragment"
+            app:popUpTo="@id/surveyFragment"/>
+        <argument
+            android:name="phoneNumber"
+            app:argType="long"
+            app:nullable="false" />
+    </fragment>
 
 </navigation>

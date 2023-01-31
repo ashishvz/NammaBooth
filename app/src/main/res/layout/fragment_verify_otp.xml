@@ -4,41 +4,51 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp">
+        android:layout_height="match_parent">
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/heading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/epilogue_semi_bold"
-            android:gravity="start"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/epilogue_bold"
+            android:padding="10dp"
             android:text="@string/verify_otp"
-            android:textColor="@color/black"
+            android:textColor="@color/primary_light"
             android:textSize="26sp" />
+
+        <ImageView
+            android:id="@+id/verifyOtpBanner"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_below="@id/heading"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="80dp"
+            android:src="@drawable/verify_otp_banner" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/desc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/otpInputLayout"
-            android:layout_marginBottom="30dp"
-            android:fontFamily="@font/epilogue_medium"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/epilogue_semi_bold"
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/enter_the_otp_sent_to_your_phone"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:textColor="@color/primary_dark"
+            android:textSize="20sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/otpInputLayout"
             android:layout_width="300dp"
             android:layout_height="70dp"
-            android:layout_centerInParent="true"
-            app:boxCornerRadiusTopEnd="8dp"
-            app:boxCornerRadiusTopStart="8dp">
+            android:layout_above="@id/downloadText"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="50dp"
+            app:boxBackgroundColor="@color/background_grey"
+            app:boxCornerRadiusTopEnd="10dp"
+            app:boxCornerRadiusTopStart="10dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/otpEditText"
@@ -49,9 +59,9 @@
                 android:hint="@string/one_time_password_otp"
                 android:inputType="number"
                 android:maxLength="4"
-                android:textColor="@color/black"
+                android:maxLines="1"
+                android:textColor="@color/primary_dark"
                 android:textSize="18sp" />
-
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -60,13 +70,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/loadingProgressBar"
-            android:gravity="center"
-            android:text="@string/downloading_voter_s_list_please_wait"
-            android:textColor="@color/black"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/epilogue_semi_bold"
+            android:gravity="center"
+            android:text="@string/downloading_voter_s_list_please_wait"
+            android:textColor="@color/primary_dark"
             android:textSize="16sp"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
 
         <androidx.core.widget.ContentLoadingProgressBar
@@ -80,7 +90,7 @@
             android:indeterminate="true"
             android:indeterminateBehavior="cycle"
             android:indeterminateOnly="true"
-            android:indeterminateTint="@color/primary_yellow" />
+            android:indeterminateTint="@color/primary_dark" />
 
         <LinearLayout
             android:id="@+id/buttonLayout"
@@ -91,6 +101,24 @@
             android:weightSum="2">
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/resendOtpButton"
+                android:layout_width="0dp"
+                android:layout_height="60dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:fontFamily="@font/epilogue_medium"
+                android:text="@string/resend_otp"
+                android:textAllCaps="false"
+                android:textColor="@color/primary_dark"
+                android:textSize="16sp"
+                app:backgroundTint="@color/white"
+                app:strokeWidth="2dp"
+                app:strokeColor="@color/secondary_dark"
+                android:drawableEnd="@drawable/ic_resend_18"
+                app:cornerRadius="10dp"/>
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/verifyOtpButton"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
@@ -99,23 +127,11 @@
                 android:fontFamily="@font/epilogue_medium"
                 android:text="@string/verify_otp"
                 android:textAllCaps="false"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textSize="16sp"
-                app:backgroundTint="@color/primary_yellow" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/resendOtpButton"
-                android:layout_width="0dp"
-                android:layout_height="60dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:fontFamily="@font/epilogue_medium"
-                android:text="@string/resend_otp"
-                android:textAllCaps="false"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                app:backgroundTint="@color/primary_yellow"
-                android:enabled="false"/>
+                app:backgroundTint="@color/primary_light"
+                android:drawableEnd="@drawable/ic_check_18"
+                app:cornerRadius="10dp"/>
 
         </LinearLayout>
     </RelativeLayout>

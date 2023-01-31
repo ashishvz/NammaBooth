@@ -10,4 +10,13 @@
     <color name="blue">#4278f5</color>
     <color name="primary_yellow">#f5f242</color>
     <color name="grey">#dadde3</color>
+
+
+    <color name="primary_dark">#231942</color>
+    <color name="primary_light">#5e548e</color>
+    <color name="secondary_dark">#9f86c0</color>
+    <color name="secondary_light">#be95c4</color>
+    <color name="tertiary">#e0b1cb</color>
+    <color name="background_grey">#D1C9FF</color>
+    <color name="selected_green">#C8E6C9</color>
 </resources>

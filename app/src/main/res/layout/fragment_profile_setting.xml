@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/epilogue_bold"
+            android:padding="10dp"
+            android:text="@string/profile"
+            android:textColor="@color/primary_light"
+            android:textSize="26sp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/profileDetail"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_below="@id/profileContainer"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="-50dp"
+            android:layout_marginEnd="10dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/agentNameTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/epilogue_bold"
+                    android:gravity="center"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="24sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/phoneNumberTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/epilogue_regular"
+                    android:gravity="center"
+                    android:layout_below="@id/agentNameTextView"
+                    android:textColor="@color/primary_light"
+                    android:textSize="16sp" />
+
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/divider1"
+                    android:layout_width="250dp"
+                    android:layout_height="2dp"
+                    android:layout_below="@id/phoneNumberTextView"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/primary_dark" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/refreshVotersCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider1"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="?attr/selectableItemBackground"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/primary_light"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_refresh_48" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="15dp"
+                            android:fontFamily="@font/epilogue_regular"
+                            android:gravity="start"
+                            android:text="@string/refresh_voter_list"
+                            android:textColor="@color/primary_dark"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/logoutCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/refreshVotersCard"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="?attr/selectableItemBackground"
+                    app:cardElevation="0dp"
+                    app:strokeColor="@color/primary_light"
+                    app:strokeWidth="1dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:orientation="horizontal"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/ic_logout_48" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="15dp"
+                            android:fontFamily="@font/epilogue_regular"
+                            android:gravity="start"
+                            android:text="@string/logout"
+                            android:textColor="@color/primary_dark"
+                            android:textSize="20sp" />
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/appVersionText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:fontFamily="@font/epilogue_medium"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/profileContainer"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="80dp"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="8dp"
+            app:strokeColor="@color/background_grey"
+            app:strokeWidth="2dp">
+
+            <ImageView
+                android:id="@+id/profileImageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_profile_48" />
+
+        </com.google.android.material.card.MaterialCardView>
+    </RelativeLayout>
+
+</layout>

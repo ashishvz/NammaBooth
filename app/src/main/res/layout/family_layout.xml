@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-15dp">
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/divider1"
+            android:layout_width="5dp"
+            android:layout_height="130dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/rounded_line"
+            app:dividerThickness="5dp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:id="@+id/div2"
+            android:layout_width="25dp"
+            android:layout_height="2dp"
+            android:background="@drawable/rounded_line"
+            android:layout_toEndOf="@id/divider1"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="-2dp"/>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/div2"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="6dp">
+
+                <GridLayout
+                    android:id="@+id/gridTop"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:columnCount="4"
+                    android:padding="10dp"
+                    android:rowCount="10"
+                    android:rowOrderPreserved="true"
+                    android:useDefaultMargins="true">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/voterIdHead"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="0"
+                        android:layout_column="0"
+                        android:layout_columnWeight="0.5"
+                        android:fontFamily="@font/epilogue_light"
+                        android:text="@string/voter_id"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/voterId"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="0"
+                        android:layout_column="1"
+                        android:layout_columnWeight="1.5"
+                        android:fontFamily="@font/epilogue_regular"
+                        android:text="SOH4638888"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/voterNameHead"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="1"
+                        android:layout_column="0"
+                        android:layout_columnWeight="0.5"
+                        android:fontFamily="@font/epilogue_light"
+                        android:text="@string/voter_name"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/voterName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="1"
+                        android:layout_column="1"
+                        android:layout_columnWeight="1.5"
+                        android:fontFamily="@font/epilogue_regular"
+                        android:maxEms="35"
+                        android:maxLength="15"
+                        android:maxLines="1"
+                        android:text="radha (ರಾಧ)"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="3"
+                        android:layout_column="0"
+                        android:layout_columnWeight="0.5"
+                        android:fontFamily="@font/epilogue_light"
+                        android:text="@string/mobile_no"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/voterMobileNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_row="3"
+                        android:layout_column="1"
+                        android:layout_columnWeight="1.5"
+                        android:fontFamily="@font/epilogue_regular"
+                        android:maxLines="1"
+                        android:text="NA"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/black"
+                        android:textSize="18sp" />
+
+                </GridLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
+</layout>

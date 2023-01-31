@@ -10,34 +10,49 @@
             android:id="@+id/otpHeading"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
-            android:fontFamily="@font/epilogue_medium"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/epilogue_bold"
             android:padding="10dp"
-            android:text="@string/let_s_start"
-            android:textColor="@color/blue"
-            android:textSize="24sp" />
+            android:text="@string/login"
+            android:textColor="@color/primary_light"
+            android:textSize="26sp" />
+
+        <ImageView
+            android:id="@+id/otpBanner"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_below="@id/otpHeading"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/otp_banner" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/otpDesc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/otpHeading"
+            android:layout_above="@id/textInputLayout"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/epilogue_semi_bold"
+            android:gravity="center"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:text="@string/enter_the_phone_number_to_verify"
-            android:textColor="@color/black"
-            android:textSize="18sp" />
+            android:text="@string/verify_your_phone_number"
+            android:textColor="@color/primary_dark"
+            android:textSize="20sp" />
 
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:layout_below="@id/otpDesc"
+            android:layout_above="@id/loadingProgressBar"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
             app:boxCornerRadiusTopEnd="10dp"
-            app:boxCornerRadiusTopStart="10dp">
+            app:boxCornerRadiusTopStart="10dp"
+            app:boxBackgroundColor="@color/background_grey">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/phoneNumberEditText"
@@ -48,6 +63,7 @@
                 android:inputType="phone"
                 android:maxLength="10"
                 android:maxLines="1"
+                android:textColor="@color/primary_dark"
                 android:textSize="18sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -56,14 +72,15 @@
             android:id="@+id/loadingProgressBar"
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="10dp"
             android:layout_above="@id/getOtpButton"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
             android:indeterminate="true"
             android:indeterminateBehavior="cycle"
             android:indeterminateOnly="true"
-            android:indeterminateTint="@color/primary_yellow" />
+            android:indeterminateTint="@color/primary_dark"
+            android:visibility="gone" />
 
 
         <com.google.android.material.button.MaterialButton
@@ -75,12 +92,13 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:fontFamily="@font/epilogue_medium"
+            android:fontFamily="@font/epilogue_semi_bold"
             android:text="@string/get_otp"
             android:textAllCaps="false"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="16sp"
-            app:backgroundTint="@color/primary_yellow" />
+            app:backgroundTint="@color/primary_light"
+            app:cornerRadius="10dp" />
 
     </RelativeLayout>
 </layout>

@@ -9,7 +9,9 @@ data class UserPreference(
 )
 
 data class PartNoPreference(
-    val partNos: String
+    val partNos: String,
+    val constituencyNumber: String,
+    val boothAgentName: String
 )
 
 data class IsLoggedIn(

@@ -1,28 +1,48 @@
 package com.payoman.nammabooth.database
 
+import io.realm.RealmList
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
 import io.realm.annotations.Required
 import org.bson.types.ObjectId
-import java.util.UUID
+import java.util.*
 
 open class User(
     @PrimaryKey
     var id: ObjectId = ObjectId(),
-
-    @Required
     var userName: String? = null,
-
     var partNumber: Int? = null,
-
     var mobileNumber: Long? = null,
-
-    @Required
     var latitude: String? = null,
-
-    @Required
     var longitude: String? = null
 ) : RealmObject()
+
+open class Candidate(
+    @PrimaryKey
+    var id: Int = 0,
+    var candidatePhoneNumber: String? = null,
+    var candidateName: String? = null,
+    var partyId: Int? = null,
+    var assemblyConstituencyNumber: String? = null,
+    var constituencyName: String? = null,
+    var candidateImageUrl: String? = null,
+    var education: String? = null,
+    var designation: String? = null,
+    var candidateWebsite: String? = null,
+    var partySymbolUrl: String? = null,
+    var candidateManifestoUrl: String? = null,
+    var bannerUrls: RealmList<String>? = null,
+    var newsLetterUrls: RealmList<String>? = null,
+    var urls: Urls? = null,
+    var createdAt: Date? = null
+) : RealmObject()
+
+open class Urls(
+    var facebook: String? = null,
+    var twitter: String? = null,
+    var youtube: String? = null,
+    var Instagram: String? = null
+): RealmObject()
 
 open class Voter(
     @PrimaryKey
@@ -59,3 +79,10 @@ open class Voter(
     var electionCommissionIdentityCardNo: String? = null,
     var mobileNo: String? = null
 ) : RealmObject()
+
+open class UpdatePhoneNumber(
+    var voterId: String? = null,
+    var phoneNumber: String? = null,
+    var latitude: String? = null,
+    var longitude: String? = null
+): RealmObject()

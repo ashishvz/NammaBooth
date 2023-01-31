@@ -57,4 +57,46 @@ class VoterOperation @Inject constructor(
         realm.close()
         return voterList
     }
+
+    suspend fun getVoterListOfFamilyMember(houseNo: String, voterId: String): MutableList<Voter> {
+        val realm = Realm.getInstance(realmConfiguration)
+        val voters = realm.where(Voter::class.java)
+        var voterList = mutableListOf<Voter>()
+        realm.executeTransactionAwait(Dispatchers.IO) {
+            val results = voters.equalTo("houseNo", houseNo.trim(), Case.INSENSITIVE)
+                .and()
+                .notEqualTo("voterId", voterId.trim()).findAll()
+            voterList = realm.copyFromRealm(results)
+        }
+        realm.close()
+        return voterList
+    }
+
+    suspend fun getVoterFromVoterId(voterId: String): Voter? {
+        val realm = Realm.getInstance(realmConfiguration)
+        val voters = realm.where(Voter::class.java)
+        var voter: Voter? = null
+        realm.executeTransactionAwait(Dispatchers.IO) {
+            val results = voters.contains("voterId", voterId.trim(), Case.INSENSITIVE).findAll()
+            voter = realm.copyFromRealm(results)[0]
+        }
+        realm.close()
+        return voter
+    }
+
+    suspend fun deleteAllVoters() {
+        val realm = Realm.getInstance(realmConfiguration)
+        realm.executeTransactionAwait(Dispatchers.IO) {
+            it.delete(Voter::class.java)
+        }
+        realm.close()
+    }
+
+    suspend fun deleteAllData() {
+        val realm = Realm.getInstance(realmConfiguration)
+        realm.executeTransactionAwait(Dispatchers.IO) {
+            it.deleteAll()
+        }
+        realm.close()
+    }
 }
