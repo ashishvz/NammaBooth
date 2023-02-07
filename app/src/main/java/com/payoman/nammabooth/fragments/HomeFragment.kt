@@ -73,9 +73,9 @@ class HomeFragment : Fragment() {
             profileCard.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToProfileFragment())
             }
-            /*updateVoterPhoneCard.setOnClickListener {
+            updateVoterPhoneCard.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToUpdatePhoneNumberFragment())
-            }*/
+            }
             whatsappSurveyCard.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSurveyFragment())
             }
