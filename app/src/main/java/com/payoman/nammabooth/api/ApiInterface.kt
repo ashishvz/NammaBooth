@@ -63,3 +63,8 @@ interface SendVoterSlip {
     @POST(Constants.SEND_WHATSAPP_SLIP)
     fun sendSlip(@Query("phone") phoneNumber: String, @Part pdfDoc: MultipartBody.Part): Call<DefaultResponse>
 }
+
+interface GetSurveyList {
+    @GET
+    fun getSurvey(@Query("party_id") party_id: String, @Query("election_id") election_id: String): Call<InAppSurveyResponse>
+}
