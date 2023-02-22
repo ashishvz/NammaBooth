@@ -65,6 +65,16 @@ interface SendVoterSlip {
 }
 
 interface GetSurveyList {
-    @GET
-    fun getSurvey(@Query("party_id") party_id: String, @Query("election_id") election_id: String): Call<InAppSurveyResponse>
+    @GET(Constants.SURVEY)
+    fun getSurvey(@Header("Authorization") token: String, @Query("party_id") party_id: String, @Query("election_id") election_id: String): Call<InAppSurveyResponse>
+}
+
+interface SendSurveyResult {
+    @POST(Constants.SURVEY_RESPONSE)
+    fun sendSurveyResult(@Header("Authorization") token: String, @Query("party_id") party_id: String, @Query("election_id") election_id: String, @Body inAppSurveyResult: MutableList<InAppSurveyResult>): Call<DefaultResponse>
+}
+
+interface GetReports {
+    @GET(Constants.REPORTS)
+    fun getReports(@Header("Authorization") token: String, @Query("party_id") party_id: String, @Query("election_id") election_id: String, @Query("ba_phone") phoneNumber: String): Call<ReportResponse>
 }

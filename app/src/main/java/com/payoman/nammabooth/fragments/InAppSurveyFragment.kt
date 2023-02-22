@@ -9,6 +9,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.payoman.nammabooth.R
 import com.payoman.nammabooth.adapters.VoterListAdapter
@@ -104,6 +105,6 @@ class InAppSurveyFragment: Fragment(), OnVoterCardClickListener {
     }
 
     override fun OnClick(voter: Voter) {
-        TODO("Not yet implemented")
+       findNavController().navigate(InAppSurveyFragmentDirections.actionInAppSurveyFragmentToInAppSurveyListFragment(voter.voterId!!))
     }
 }

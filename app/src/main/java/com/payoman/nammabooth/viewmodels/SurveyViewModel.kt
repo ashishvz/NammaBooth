@@ -24,8 +24,4 @@ class SurveyViewModel @Inject constructor(
     suspend fun triggerSurvey(id: String, triggerSurveyRequest: TriggerSurveyRequest) {
         triggerSurvey.postValue(surveyRepository.triggerSurvey(id, triggerSurveyRequest))
     }
-
-    fun clearData() {
-
-    }
 }
