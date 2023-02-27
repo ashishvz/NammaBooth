@@ -1,19 +1,10 @@
 package com.payoman.nammabooth.fragments
 
-import android.app.Dialog
-import android.graphics.Bitmap
-import android.graphics.Canvas
-import android.graphics.pdf.PdfDocument
-import android.os.Build
 import android.os.Bundle
-import android.util.DisplayMetrics
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
-import android.widget.Toast
-import androidx.core.widget.ContentLoadingProgressBar
 import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -21,41 +12,28 @@ import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textview.MaterialTextView
 import com.payoman.nammabooth.R
-import com.payoman.nammabooth.adapters.UpdatePhoneAdapter
 import com.payoman.nammabooth.adapters.VoterListAdapter
-import com.payoman.nammabooth.database.UpdatePhoneNumber
 import com.payoman.nammabooth.database.Voter
 import com.payoman.nammabooth.databinding.FragmentVoterListBinding
-import com.payoman.nammabooth.dialogs.SurveyListDialog
 import com.payoman.nammabooth.interfaces.OnVoterCardClickListener
-import com.payoman.nammabooth.utils.AppUtils
 import com.payoman.nammabooth.viewmodels.VoterListViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import java.io.File
-import java.io.FileOutputStream
-import java.util.*
 
-class SurveyFragment : Fragment(), OnVoterCardClickListener {
-
+class InAppSurveyFragment: Fragment(), OnVoterCardClickListener {
     private lateinit var binding: FragmentVoterListBinding
     private val voterListViewModel: VoterListViewModel by activityViewModels()
     private val voterList: MutableList<Voter> = mutableListOf()
-    private var voterListAdapter: VoterListAdapter? = null
+    private lateinit var voterListAdapter: VoterListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding =
-            DataBindingUtil.inflate(layoutInflater, R.layout.fragment_voter_list, container, false)
+        binding = DataBindingUtil.inflate(layoutInflater, R.layout.fragment_voter_list, container, false)
         return binding.root
     }
 
@@ -63,7 +41,7 @@ class SurveyFragment : Fragment(), OnVoterCardClickListener {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             loadingProgressBar.show()
-            voterListAdapter = VoterListAdapter(voterList, requireActivity(), this@SurveyFragment)
+            voterListAdapter = VoterListAdapter(voterList, requireActivity(), this@InAppSurveyFragment)
             voterRecyclerView.layoutManager =
                 LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             voterRecyclerView.setHasFixedSize(true)
@@ -112,7 +90,7 @@ class SurveyFragment : Fragment(), OnVoterCardClickListener {
                 binding.noVoters.visibility = View.GONE
             }
             binding.loadingProgressBar.hide()
-            voterListAdapter!!.updateVoterList(voterList.toMutableList())
+            voterListAdapter.updateVoterList(voterList.toMutableList())
         }
     }
 
@@ -129,23 +107,6 @@ class SurveyFragment : Fragment(), OnVoterCardClickListener {
     }
 
     override fun OnClick(voter: Voter) {
-        val dialog = BottomSheetDialog(requireContext())
-        dialog.setContentView(R.layout.voter_survey_bottom_sheet)
-        val voterDetail = dialog.findViewById<MaterialTextView>(R.id.voterDetail)
-        val voterNumber = dialog.findViewById<MaterialTextView>(R.id.voterPhoneNumber)
-        val initiateSurveyButton = dialog.findViewById<MaterialButton>(R.id.initiateSurveyButton)
-        val loadingProgressBar = dialog.findViewById<ContentLoadingProgressBar>(R.id.loadingProgressBar)
-        loadingProgressBar!!.hide()
-        voterDetail!!.text = String.format(Locale.ENGLISH, "%s-%s", voter.voterNameEn, voter.voterId)
-        voterNumber!!.text = if (voter.mobileNo.isNullOrBlank()) "NA" else voter.mobileNo
-        initiateSurveyButton?.setOnClickListener {
-            if (voter.mobileNo.isNullOrEmpty()) {
-                Toast.makeText(requireContext(), "Voter number not found:)", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            dialog.dismiss()
-            findNavController().navigate(SurveyFragmentDirections.actionSurveyFragmentToSurveyListFragment(voter.mobileNo!!.toLong()))
-        }
-        dialog.show()
+        findNavController().navigate(InAppSurveyFragmentDirections.actionInAppSurveyFragmentToInAppSurveyListFragment(voter.voterId!!))
     }
 }

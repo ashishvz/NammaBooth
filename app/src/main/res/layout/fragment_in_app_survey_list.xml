@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/epilogue_bold"
+            android:padding="10dp"
+            android:text="@string/survey"
+            android:textColor="@color/primary_light"
+            android:textSize="26sp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/surveyRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/survey_card_layout"
+            android:layout_below="@id/heading"
+            android:layout_above="@id/submitSurveyButton"/>
+
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/loadingProgressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:indeterminate="true"
+            android:indeterminateBehavior="cycle"
+            android:indeterminateOnly="true"
+            android:indeterminateTint="@color/primary_dark" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/noData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/epilogue_regular"
+            android:padding="10dp"
+            android:text="@string/no_survey_s_found"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:visibility="gone" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/submitSurveyButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:text="@string/submit"
+            android:textAllCaps="false"
+            android:backgroundTint="@color/primary_light"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"/>
+
+    </RelativeLayout>
+</layout>

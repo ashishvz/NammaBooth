@@ -15,6 +15,10 @@ object Constants {
     const val WHATSAPP_MESSAGE = "whatsapp/message"
     const val TRIGGER_WHATSAPP_MESSAGE = "whatsapp/whatsapp/camp"
     const val SEND_WHATSAPP_SLIP = "whatsapp/e-slip"
+    const val SURVEY_RESPONSE = "booth-agent/survey_response"
+    const val REPORTS = "reports/survey"
+    const val SURVEY = "booth-agent/survey"
+
 
 
 
@@ -34,4 +38,7 @@ object Constants {
 
     //Build version
     const val BUILD_VERSION = "v1.0"
+
+    const val PARTY_ID = 2
+    const val ELECTION_ID = 1
 }

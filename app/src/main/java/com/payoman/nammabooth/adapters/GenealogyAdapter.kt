@@ -34,6 +34,7 @@ class GenealogyAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.setData(voterList[position])
+        holder.setIsRecyclable(false)
     }
 
     override fun getItemCount(): Int {

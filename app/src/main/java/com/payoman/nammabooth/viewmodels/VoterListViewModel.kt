@@ -39,4 +39,8 @@ class VoterListViewModel @Inject constructor(
         sendSlip.postValue(voterRepository.sendSlip(phoneNumber, pdfDoc))
     }
 
+    fun getDataStoreInstance(): DataStore<Preferences> {
+        return dataStore
+    }
+
 }

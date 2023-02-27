@@ -79,6 +79,12 @@ class HomeFragment : Fragment() {
             whatsappSurveyCard.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSurveyFragment())
             }
+            reportsCard.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToReportsFragment())
+            }
+            surveyCard.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToInAppSurveyFragment())
+            }
             Glide.with(requireContext()).load(candidate.candidateImageUrl).placeholder(
                 AppCompatResources.getDrawable(
                     requireContext(),

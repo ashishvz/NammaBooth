@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
@@ -26,6 +27,7 @@ import com.payoman.nammabooth.models.WhatsappMessage
 import com.payoman.nammabooth.models.WhatsappMessageListResponse
 import com.payoman.nammabooth.viewmodels.SurveyViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import retrofit2.http.POST
 
@@ -58,18 +60,25 @@ class SurveyListFragment: Fragment(), OnSurveyClickListener {
             surveyAdapter = SurveyAdapter(requireContext(), whatsappMessageList, this@SurveyListFragment)
             surveyRecycler.adapter = surveyAdapter
             cancelButton.setOnClickListener {
-                findNavController().navigate(SurveyListFragmentDirections.actionSurveyListFragmentToSurveyFragment())
+                findNavController().popBackStack()
+                findNavController().popBackStack()
+                findNavController().navigate(R.id.surveyFragment)
             }
             submitSurveyButton.setOnClickListener {
-                runBlocking(Dispatchers.IO) {
-                    surveyViewModel.triggerSurvey(selectedPosition.toString(), TriggerSurveyRequest(
-                        mutableListOf(selectedPhoneNumber)
-                    ))
+                lifecycleScope.launch(Dispatchers.IO) {
+                    if (selectedPosition > 0)
+                        surveyViewModel.triggerSurvey(selectedPosition.toString(), TriggerSurveyRequest(
+                            mutableListOf(selectedPhoneNumber)
+                        ))
+                    else
+                        lifecycleScope.launch(Dispatchers.Main) {
+                            Toast.makeText(requireContext(), "Selected a survey", Toast.LENGTH_SHORT).show()
+                        }
                 }
             }
         }
         setObservers()
-        runBlocking(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             surveyViewModel.getSurveyList()
         }
     }
@@ -111,8 +120,8 @@ class SurveyListFragment: Fragment(), OnSurveyClickListener {
     }
 
     override fun onDestroy() {
+        super.onDestroy()
         surveyViewModel.surveyList.value = null
         surveyViewModel.triggerSurvey.value = null
-        super.onDestroy()
     }
 }

@@ -13,7 +13,7 @@ class GenealogyViewModel @Inject constructor(
     private val genealogyRepository: GenealogyRepository
 ): ViewModel() {
 
-    val familyList: MutableLiveData<MutableList<Voter>> = MutableLiveData()
+    val familyList: MutableLiveData<MutableList<Voter>?> = MutableLiveData()
     val voter: MutableLiveData<Voter?> = MutableLiveData()
 
     suspend fun getFamilyOfVoter(houseNo: String, voterId: String) {
@@ -22,5 +22,10 @@ class GenealogyViewModel @Inject constructor(
 
     suspend fun getVoter(voterId: String) {
         voter.postValue(genealogyRepository.getVoterFromVoterId(voterId))
+    }
+
+    fun clearData() {
+        familyList.value = null
+        voter.value = null
     }
 }

@@ -3,6 +3,7 @@ package com.payoman.nammabooth.database
 import io.realm.Case
 import io.realm.Realm
 import io.realm.RealmConfiguration
+import io.realm.Sort
 import io.realm.kotlin.executeTransactionAwait
 import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
@@ -38,7 +39,7 @@ class VoterOperation @Inject constructor(
         val realm = Realm.getInstance(realmConfiguration)
         var voterList = mutableListOf<Voter>()
         realm.executeTransactionAwait(Dispatchers.IO) {
-            voterList = realm.copyFromRealm(realm.where(Voter::class.java).findAll())
+            voterList = realm.copyFromRealm(realm.where(Voter::class.java).sort("sno", Sort.ASCENDING).findAll())
         }
         realm.close()
         return voterList
@@ -51,7 +52,7 @@ class VoterOperation @Inject constructor(
         realm.executeTransactionAwait(Dispatchers.IO) {
             val results = voters.contains("voterNameEn", query.trim(), Case.INSENSITIVE)
                 .or()
-                .contains("voterId", query.trim(), Case.INSENSITIVE).findAll()
+                .contains("voterId", query.trim(), Case.INSENSITIVE).sort("sno", Sort.ASCENDING).findAll()
             voterList = realm.copyFromRealm(results)
         }
         realm.close()
@@ -63,9 +64,8 @@ class VoterOperation @Inject constructor(
         val voters = realm.where(Voter::class.java)
         var voterList = mutableListOf<Voter>()
         realm.executeTransactionAwait(Dispatchers.IO) {
-            val results = voters.equalTo("houseNo", houseNo.trim(), Case.INSENSITIVE)
-                .and()
-                .notEqualTo("voterId", voterId.trim()).findAll()
+            val results = voters.equalTo("houseNo", houseNo.trim(), Case.SENSITIVE).or().equalTo("houseNoEn", houseNo.trim(), Case.SENSITIVE)
+                .and().notEqualTo("voterId", voterId.trim(), Case.SENSITIVE).sort("sno", Sort.ASCENDING).findAll()
             voterList = realm.copyFromRealm(results)
         }
         realm.close()

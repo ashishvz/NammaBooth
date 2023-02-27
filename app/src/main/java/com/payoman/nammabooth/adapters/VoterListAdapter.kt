@@ -25,9 +25,10 @@ class VoterListAdapter(
     inner class ViewHolder : RecyclerView.ViewHolder(binding.root) {
         fun setData(voter: Voter) {
             binding.apply {
+                voterSLNO.text = voter.sno
                 voterId.text = voter.voterId ?: "NA"
                 voterName.text = String.format(Locale.ENGLISH, "%s(%s)", voter.voterNameEn ?: "NA", voter.voterNameKan ?: "NA")
-                voterSectionName.text = String.format(Locale.ENGLISH, "%s(%s)", voter.sectionNameEn ?: "NA", voter.sectionNameKan ?: "NA")
+                voterPartNoName.text = String.format(Locale.ENGLISH, "%s", voter.partNo)
                 voterMobileNumber.text = if (voter.mobileNo.isNullOrBlank()) "NA" else voter.mobileNo
                 voterAge.text = String.format(Locale.ENGLISH, "%s %s", voter.age, "years")
                 voterGender.text = voter.sex

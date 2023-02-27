@@ -18,6 +18,7 @@ import androidx.core.widget.doOnTextChanged
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
@@ -118,13 +119,13 @@ class UpdatePhoneNumberFragment : Fragment(), OnVoterCardClickListener {
     }
 
     private fun getAllVoterList() {
-        runBlocking(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             updatePhoneNumberViewModel.getVoterList()
         }
     }
 
     private fun getFilteredVoterList(query: String) {
-        runBlocking(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.IO) {
             updatePhoneNumberViewModel.searchVoters(query)
         }
     }
@@ -154,6 +155,7 @@ class UpdatePhoneNumberFragment : Fragment(), OnVoterCardClickListener {
                  if (phoneNumberEditText.text != null && phoneNumberEditText.text!!.length > 9) {
                      if (phoneNumberEditText.text.toString().trim() == voter.mobileNo.toString().trim()) {
                          Toast.makeText(requireContext(), "Same phone number as old. Cannot update!", Toast.LENGTH_SHORT).show()
+                         loadingProgressbar.hide()
                          return@setOnClickListener
                      } else {
                          if (AppUtils.InternetCheckUtils.isConnected()) {
@@ -163,10 +165,11 @@ class UpdatePhoneNumberFragment : Fragment(), OnVoterCardClickListener {
                                  updatePhoneNumberViewModel.postUpdatePhoneNumber(updatePhoneNumberList).body()
                              }
                              if (response != null) {
-                                 if (response.status.equals("SUCCESS")) {
+                                 if (response.status.equals("SUCCESS") || response.status.equals("PROCESSING")) {
                                      runBlocking(Dispatchers.IO) {
                                          updatePhoneNumberViewModel.updatePhoneNumber(voter.voterId.toString(), phoneNumberEditText.text.toString().trim())
                                      }
+                                     getAllVoterList()
                                      Toast.makeText(requireContext(), "Phone number updated :)", Toast.LENGTH_SHORT).show()
                                  } else
                                      Toast.makeText(requireContext(), "Failed to update phone number :(", Toast.LENGTH_SHORT).show()
@@ -185,6 +188,9 @@ class UpdatePhoneNumberFragment : Fragment(), OnVoterCardClickListener {
                          dialog.dismiss()
                          uDialog.dismiss()
                      }
+                 }else {
+                     Toast.makeText(requireContext(), "Invalid phone number!", Toast.LENGTH_SHORT).show()
+                     loadingProgressbar.hide()
                  }
              }
              cancelButton.setOnClickListener {

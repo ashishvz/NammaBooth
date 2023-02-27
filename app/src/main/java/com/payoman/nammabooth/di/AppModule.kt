@@ -9,9 +9,7 @@ import androidx.datastore.preferences.core.emptyPreferences
 import androidx.datastore.preferences.preferencesDataStoreFile
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.payoman.nammabooth.apiOperations.SurveyApiOperation
-import com.payoman.nammabooth.apiOperations.UpdatePhoneNumberApiOperation
-import com.payoman.nammabooth.apiOperations.VoterApiOperation
+import com.payoman.nammabooth.apiOperations.*
 import com.payoman.nammabooth.database.*
 import com.payoman.nammabooth.repository.*
 import com.payoman.nammabooth.utils.Constants
@@ -166,7 +164,6 @@ object AppModule {
     }
 
     @Provides
-    @Singleton
     fun provideGenealogyViewModel(genealogyRepository: GenealogyRepository): GenealogyViewModel {
         return GenealogyViewModel(genealogyRepository)
     }
@@ -187,5 +184,41 @@ object AppModule {
     @Singleton
     fun provideSurveyViewModel(surveyRepository: SurveyRepository): SurveyViewModel {
         return SurveyViewModel(surveyRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun providesInAppSurveyApiOperations(retrofit: Retrofit, dataStore: DataStore<Preferences>): InAppSurveyApiOperation {
+        return InAppSurveyApiOperation(retrofit, dataStore)
+    }
+
+    @Provides
+    @Singleton
+    fun provideInAppSurveyRepository(inAppSurveyApiOperation: InAppSurveyApiOperation): InAppSurveyRepository {
+        return InAppSurveyRepository(inAppSurveyApiOperation)
+    }
+
+    @Provides
+    @Singleton
+    fun providesInAppSurveyViewModel(inAppSurveyRepository: InAppSurveyRepository): InAppSurveyViewModel {
+        return InAppSurveyViewModel(inAppSurveyRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun providesReportApiOperation(retrofit: Retrofit, dataStore: DataStore<Preferences>): ReportApiOperation {
+        return ReportApiOperation(retrofit, dataStore)
+    }
+
+    @Provides
+    @Singleton
+    fun providesReportRepository(reportApiOperation: ReportApiOperation): ReportRepository {
+        return ReportRepository(reportApiOperation)
+    }
+
+    @Provides
+    @Singleton
+    fun providesReportViewModel(reportRepository: ReportRepository): ReportViewModel {
+        return ReportViewModel(reportRepository)
     }
 }

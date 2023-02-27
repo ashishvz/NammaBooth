@@ -12,14 +12,15 @@ import com.payoman.nammabooth.R
 import com.payoman.nammabooth.database.Voter
 import com.payoman.nammabooth.databinding.VoterCardBinding
 import com.payoman.nammabooth.interfaces.OnVoterCardClickListener
+import com.payoman.nammabooth.interfaces.OnVoterDetailClick
 import java.util.*
-import kotlin.math.expm1
 
-class UpdatePhoneAdapter(
+class VoterSearchListAdapter(
     private val voterList: MutableList<Voter>,
     private val context: Context,
-    private val onVoterCardClickListener: OnVoterCardClickListener
-) : RecyclerView.Adapter<UpdatePhoneAdapter.ViewHolder>() {
+    private val onVoterCardClickListener: OnVoterCardClickListener,
+    private val onVoterDetailClick: OnVoterDetailClick
+) : RecyclerView.Adapter<VoterSearchListAdapter.ViewHolder>() {
 
     lateinit var binding: VoterCardBinding
 
@@ -28,11 +29,22 @@ class UpdatePhoneAdapter(
             binding.apply {
                 voterSLNO.text = voter.sno
                 voterId.text = voter.voterId ?: "NA"
-                voterName.text = String.format(Locale.ENGLISH, "%s(%s)", voter.voterNameEn ?: "NA", voter.voterNameKan ?: "NA")
-                voterMobileNumber.text = if (voter.mobileNo.isNullOrBlank()) "NA" else voter.mobileNo
-                voterPartNoName.visibility = View.GONE
-                sectionNameText.visibility = View.GONE
-                expandImageView.visibility = View.GONE
+                voterName.text = String.format(
+                    Locale.ENGLISH,
+                    "%s(%s)",
+                    voter.voterNameEn ?: "NA",
+                    voter.voterNameKan ?: "NA"
+                )
+                voterPartNoName.text = String.format(
+                    Locale.ENGLISH,
+                    "%s",
+                    voter.partNo
+                )
+                voterMobileNumber.text =
+                    if (voter.mobileNo.isNullOrBlank()) "NA" else voter.mobileNo
+                voterAge.text = String.format(Locale.ENGLISH, "%s %s", voter.age, "years")
+                voterGender.text = voter.sex
+                voterHouseNo.text = voter.houseNoEn
                 gridBottom.visibility = View.GONE
             }
         }
@@ -49,14 +61,6 @@ class UpdatePhoneAdapter(
         return ViewHolder()
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.setData(voterList[position])
-        binding.voterCard.setOnClickListener {
-            onVoterCardClickListener.OnClick(voterList[position])
-        }
-        holder.setIsRecyclable(false)
-    }
-
     override fun getItemCount(): Int {
         return voterList.size
     }
@@ -64,6 +68,22 @@ class UpdatePhoneAdapter(
     fun updateVoterList(newVoterList: MutableList<Voter>) {
         voterList.clear()
         voterList.addAll(newVoterList)
+        notifyDataSetChanged()
+    }
+
+    override fun onBindViewHolder(holder: VoterSearchListAdapter.ViewHolder, position: Int) {
+        holder.setData(voterList[position])
+        binding.voterCard.setOnClickListener {
+            onVoterCardClickListener.OnClick(voterList[position])
+        }
+        binding.expandImageView.setOnClickListener {
+            onVoterDetailClick.onClick(voterList[position])
+        }
+        holder.setIsRecyclable(false)
+    }
+
+    fun clearData() {
+        voterList.clear()
         notifyDataSetChanged()
     }
 }

@@ -19,7 +19,7 @@
     <string name="section_name">Section Name:</string>
     <string name="mobile_no">Mobile No:</string>
     <string name="update_phone_no">Update phone number</string>
-    <string name="send_voter_slip">Send voter slip to whatsapp</string>
+    <string name="send_voter_slip">Send voter slip</string>
     <string name="voter_slip">Voter Slip</string>
     <string name="no_voter_s_found">No voter\'s found</string>
     <string name="login">Login</string>
@@ -59,4 +59,15 @@
     <string name="sending_slip">Sending slip. Please wait!</string>
     <string name="whatsapp_survey">Voters Whatsapp Survey</string>
     <string name="previous_election_result_data">Previous election result data</string>
+    <string name="submit">Submit</string>
+    <string name="report">Reports</string>
+    <string name="no_reports_found">No Reports found:(</string>
+    <string name="no_survey_s_found">No Survey\'s found:(</string>
+    <string name="assembly_constituency">Assembly Constituency</string>
+    <string name="state">State</string>
+    <string name="polling_station">Polling Station</string>
+    <string name="gender_">Gender</string>
+    <string name="serial_no">Serial No</string>
+    <string name="part_no">Part No:</string>
+    <string name="ac_no">AC No</string>
 </resources>

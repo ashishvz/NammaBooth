@@ -4,6 +4,7 @@ import com.payoman.nammabooth.api.UpdatePhoneNumberInterface
 import com.payoman.nammabooth.database.UpdatePhoneNumber
 import com.payoman.nammabooth.models.DefaultResponse
 import com.payoman.nammabooth.utils.AppUtils
+import com.payoman.nammabooth.utils.Constants
 import com.payoman.nammabooth.viewmodels.DataStorePreferenceViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.first
@@ -26,7 +27,7 @@ class UpdatePhoneNumberApiOperation @Inject constructor(
             token = AppUtils.DataStorePreference.getTokenFromDataStorePreference(
                 dataStorePreferenceViewModel.provideDataStoreInstance()
             ).first().token
-            updatePhoneNumberInterface.updatePhoneNumber(token, updatePhoneNUmberList)
+            updatePhoneNumberInterface.updatePhoneNumber(token, Constants.PARTY_ID.toString(), Constants.ELECTION_ID.toString(), updatePhoneNUmberList)
             /*updatePhoneNumberInterface.updatePhoneNumber(token, updatePhoneNUmberList)
                 .enqueue(object : Callback<DefaultResponse> {
                     override fun onResponse(
