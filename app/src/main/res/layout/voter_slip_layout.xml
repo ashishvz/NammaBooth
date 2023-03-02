@@ -128,7 +128,7 @@
             android:layout_height="70dp"
             android:layout_below="@id/pollingStation"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/jds_logo" />
+            android:src="@drawable/bjp_logo" />
 
     </RelativeLayout>
 </layout>

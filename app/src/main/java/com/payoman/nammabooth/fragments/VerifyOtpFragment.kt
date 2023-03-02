@@ -24,6 +24,7 @@ import com.payoman.nammabooth.dataStore.UserPreference
 import com.payoman.nammabooth.database.Candidate
 import com.payoman.nammabooth.models.*
 import com.payoman.nammabooth.utils.AppUtils
+import com.payoman.nammabooth.utils.Constants
 import com.payoman.nammabooth.viewmodels.OtpViewModel
 import io.realm.RealmList
 import kotlinx.coroutines.*
@@ -218,7 +219,7 @@ class VerifyOtpFragment : Fragment() {
             val preference = AppUtils.DataStorePreference.getPartNosFromDataStorePreference(otpViewModel.provideDataStoreInstance()).first()
             getCandidateDetails.getCandidateDetails(
                 preference.constituencyNumber,
-                "2",
+                Constants.PARTY_ID.toString(),
                 AppUtils.DataStorePreference.getTokenFromDataStorePreference(otpViewModel.provideDataStoreInstance()).first().token
             ).enqueue(
                 object : Callback<CandidateResponse> {
