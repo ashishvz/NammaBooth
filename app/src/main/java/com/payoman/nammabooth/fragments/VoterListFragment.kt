@@ -203,7 +203,7 @@ class VoterListFragment : Fragment(), OnVoterCardClickListener, OnVoterDetailCli
                 partNo.text = String.format(Locale.ENGLISH, "%s: %s", "Part No", voter.partNo)
                 voterId.text = String.format(Locale.ENGLISH, "%s: %s", "Voter Id", voter.voterId)
                 fatherName.text = String.format(Locale.ENGLISH, "%s: %s(%s)", "Father Name", voter.relationNameEn, if (voter.relationNameKan.isNullOrBlank()) "-" else voter.relationNameKan)
-                age.text = String.format(Locale.ENGLISH, "%s: %s/%s", "Age", voter.age, voter.sex)
+                age.text = String.format(Locale.ENGLISH, "%s: %d/%s", "Age", voter.age, voter.sex)
                 partName.text = String.format(Locale.ENGLISH, "%s: %s", "Part Name", voter.sectionNameEn)
                 pollingStation.text = String.format(Locale.ENGLISH, "%s: %s", "Polling Station", voter.poolingStation)
                 val displayMetrics = DisplayMetrics()
@@ -362,7 +362,7 @@ class VoterListFragment : Fragment(), OnVoterCardClickListener, OnVoterDetailCli
             dialogBinding.voterNameKan.text = if (voter.voterNameKan.isNullOrBlank()) "NA" else voter.voterNameKan
             dialogBinding.voterNameEn.text = if (voter.voterNameEn.isNullOrBlank()) "NA" else voter.voterNameEn
             dialogBinding.voterGender.text = if (voter.sex.isNullOrBlank()) "NA" else voter.sex
-            dialogBinding.voterAge.text = if (voter.age.isNullOrBlank()) "NA" else voter.age
+            dialogBinding.voterAge.text = if (voter.age == null) "NA" else voter.age.toString()
             dialogBinding.voterParentEn.text = if (voter.relationNameEn.isNullOrBlank()) "NA" else voter.relationNameEn
             dialogBinding.voterParentKan.text = if (voter.relationNameKan.isNullOrBlank()) "NA" else voter.relationNameKan
             dialogBinding.voterAssemblyConstituency.text = if (voter.acno.isNullOrBlank()) "NA" else voter.acno

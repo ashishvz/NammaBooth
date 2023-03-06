@@ -30,7 +30,7 @@ class VoterListAdapter(
                 voterName.text = String.format(Locale.ENGLISH, "%s(%s)", voter.voterNameEn ?: "NA", voter.voterNameKan ?: "NA")
                 voterPartNoName.text = String.format(Locale.ENGLISH, "%s", voter.partNo)
                 voterMobileNumber.text = if (voter.mobileNo.isNullOrBlank()) "NA" else voter.mobileNo
-                voterAge.text = String.format(Locale.ENGLISH, "%s %s", voter.age, "years")
+                voterAge.text = String.format(Locale.ENGLISH, "%d %s", voter.age, "years")
                 voterGender.text = voter.sex
                 voterHouseNo.text = voter.houseNoEn
                 expandImageView.setOnClickListener {

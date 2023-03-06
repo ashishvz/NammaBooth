@@ -17,6 +17,7 @@ import com.payoman.nammabooth.R
 import com.payoman.nammabooth.adapters.InAppSurveyAdapter
 import com.payoman.nammabooth.databinding.FragmentInAppSurveyListBinding
 import com.payoman.nammabooth.models.InAppSurveyResult
+import com.payoman.nammabooth.models.SendSurveyStatusRequest
 import com.payoman.nammabooth.utils.Constants
 import com.payoman.nammabooth.viewmodels.InAppSurveyViewModel
 import kotlinx.coroutines.Dispatchers
@@ -62,7 +63,12 @@ class InAppSurveyListFragment: Fragment() {
                 }
                 loadingProgressBar.show()
                 lifecycleScope.launch(Dispatchers.IO) {
+                    viewModel.setColor(voterIdArgs, resultList[resultList.size - 1].answerSelected)
                     viewModel.sendSurveyResult(resultList, Constants.PARTY_ID.toString(), Constants.ELECTION_ID.toString())
+                    viewModel.sendVoterStatus(SendSurveyStatusRequest(voterIdArgs, resultList[resultList.size - 1].answerSelected,
+                        isVoted = false,
+                        isSurveyCompleted = true
+                    ))
                 }
             }
         }

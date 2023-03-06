@@ -18,6 +18,7 @@ object Constants {
     const val SURVEY_RESPONSE = "booth-agent/survey_response"
     const val REPORTS = "reports/survey"
     const val SURVEY = "booth-agent/survey"
+    const val SEND_VOTER_STATUS = "booth-agent/voter_survey_data"
     //Shared Preference
     const val PREFERENCE_DATA_STORE_FILE_NAME = "userDataStore"
     val PHONE_NUMBER = stringPreferencesKey("phoneNumber")

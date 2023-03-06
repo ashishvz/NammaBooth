@@ -42,7 +42,7 @@ open class Urls(
     var twitter: String? = null,
     var youtube: String? = null,
     var Instagram: String? = null
-): RealmObject()
+) : RealmObject()
 
 open class Voter(
     @PrimaryKey
@@ -61,7 +61,7 @@ open class Voter(
     var relationNameEn: String? = null,
     var relationNameKan: String? = null,
     var relationType: String? = null,
-    var age: String? = null,
+    var age: Int? = null,
     var voterId: String? = null,
     var statusType: String? = null,
     var poolingStation: String? = null,
@@ -77,7 +77,9 @@ open class Voter(
     var caste: String? = null,
     var motherTongue: String? = null,
     var electionCommissionIdentityCardNo: String? = null,
-    var mobileNo: String? = null
+    var mobileNo: String? = null,
+    var selectedColor: String? = null,
+    var isVoted: Boolean? = null
 ) : RealmObject()
 
 open class UpdatePhoneNumber(
@@ -85,4 +87,4 @@ open class UpdatePhoneNumber(
     var phoneNumber: String? = null,
     var latitude: String? = null,
     var longitude: String? = null
-): RealmObject()
+) : RealmObject()

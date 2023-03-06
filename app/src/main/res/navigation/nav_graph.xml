@@ -171,6 +171,31 @@
         android:id="@+id/reportsFragment"
         android:name="com.payoman.nammabooth.fragments.ReportsFragment"
         android:label="ReportsFragment"
-        tools:layout="@layout/fragment_report"/>
+        tools:layout="@layout/fragment_reports">
+        <action
+            android:id="@+id/action_reportsFragment_to_reportPhoneFragment"
+            app:destination="@id/reportPhoneFragment" />
+        <action
+            android:id="@+id/action_reportsFragment_to_reportAgeFragment"
+            app:destination="@id/reportAgeFragment" />
+        <action
+            android:id="@+id/action_reportsFragment_to_reportColorWiseFragment"
+            app:destination="@id/reportColorWiseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportPhoneFragment"
+        android:name="com.payoman.nammabooth.fragments.ReportPhoneFragment"
+        android:label="ReportPhoneFragment"
+        tools:layout="@layout/fragment_report_phone"/>
+    <fragment
+        android:id="@+id/reportAgeFragment"
+        android:name="com.payoman.nammabooth.fragments.ReportAgeFragment"
+        android:label="ReportAgeFragment"
+        tools:layout="@layout/fragment_report_age"/>
+    <fragment
+        android:id="@+id/reportColorWiseFragment"
+        android:name="com.payoman.nammabooth.fragments.ReportColorWiseFragment"
+        android:label="ReportColorWiseFragment"
+        tools:layout="@layout/fragment_report_color"/>
 
 </navigation>

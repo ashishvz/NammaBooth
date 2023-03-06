@@ -70,4 +70,7 @@
     <string name="serial_no">Serial No</string>
     <string name="part_no">Part No:</string>
     <string name="ac_no">AC No</string>
+    <string name="report_phone">Report-Phone</string>
+    <string name="report_agewise">Report-AgeWise</string>
+    <string name="report_colourwise">Report-ColourWise</string>
 </resources>

@@ -74,6 +74,11 @@ interface SendSurveyResult {
     fun sendSurveyResult(@Header("Authorization") token: String, @Query("party_id") party_id: String, @Query("election_id") election_id: String, @Body inAppSurveyResult: MutableList<InAppSurveyResult>): Call<DefaultResponse>
 }
 
+interface SendVoterStatus {
+    @POST(Constants.SEND_VOTER_STATUS)
+    fun sendVoterStatus(@Header("Authorization") token: String, @Query("party_id") party_id: String, @Query("election_id") election_id: String, @Body sendSurveyStatusRequest: SendSurveyStatusRequest): Call<DefaultResponse>
+}
+
 interface GetReports {
     @GET(Constants.REPORTS)
     fun getReports(@Header("Authorization") token: String, @Query("party_id") party_id: String, @Query("election_id") election_id: String, @Query("ba_phone") phoneNumber: String): Call<ReportResponse>

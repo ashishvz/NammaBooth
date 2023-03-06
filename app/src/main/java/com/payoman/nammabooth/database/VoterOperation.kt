@@ -84,6 +84,18 @@ class VoterOperation @Inject constructor(
         return voter
     }
 
+    suspend fun setSelectedColor(voterId: String, color: String) {
+        val realm = Realm.getInstance(realmConfiguration)
+        realm.executeTransactionAwait(Dispatchers.IO) {
+            val voter = it.where(Voter::class.java).equalTo("voterId", voterId).findFirst()
+            if (voter != null) {
+                voter.selectedColor = color
+                it.copyToRealmOrUpdate(voter)
+            }
+        }
+        realm.close()
+    }
+
     suspend fun deleteAllVoters() {
         val realm = Realm.getInstance(realmConfiguration)
         realm.executeTransactionAwait(Dispatchers.IO) {

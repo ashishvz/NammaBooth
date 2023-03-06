@@ -76,6 +76,7 @@ object AppModule {
             .allowQueriesOnUiThread(true)
             .allowWritesOnUiThread(true)
             .schemaVersion(Constants.DB_SCHEMA_VERSION)
+            .deleteRealmIfMigrationNeeded()
             .build()
     }
 
@@ -194,8 +195,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideInAppSurveyRepository(inAppSurveyApiOperation: InAppSurveyApiOperation): InAppSurveyRepository {
-        return InAppSurveyRepository(inAppSurveyApiOperation)
+    fun provideInAppSurveyRepository(inAppSurveyApiOperation: InAppSurveyApiOperation, voterOperation: VoterOperation): InAppSurveyRepository {
+        return InAppSurveyRepository(inAppSurveyApiOperation, voterOperation)
     }
 
     @Provides
@@ -220,5 +221,23 @@ object AppModule {
     @Singleton
     fun providesReportViewModel(reportRepository: ReportRepository): ReportViewModel {
         return ReportViewModel(reportRepository)
+    }
+
+    @Provides
+    @Singleton
+    fun providesReportPhoneDataSource(realmConfiguration: RealmConfiguration): ReportsLocalDataSource {
+        return ReportsLocalDataSource(realmConfiguration)
+    }
+
+    @Provides
+    @Singleton
+    fun providesReportPhoneRepository(reportsLocalDataSource: ReportsLocalDataSource): ReportPhoneRepository {
+        return ReportPhoneRepository(reportsLocalDataSource)
+    }
+
+    @Provides
+    @Singleton
+    fun providesReportPhoneViewModel(reportPhoneRepository: ReportPhoneRepository): ReportPhoneViewModel {
+        return ReportPhoneViewModel(reportPhoneRepository)
     }
 }

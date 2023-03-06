@@ -9,7 +9,6 @@ import javax.inject.Inject
 class UserOperation @Inject constructor(
     private val realmConfiguration: RealmConfiguration
 ) {
-
     suspend fun insertUser(user: User) {
         val realm = Realm.getInstance(realmConfiguration)
         realm.executeTransactionAwait(Dispatchers.IO)  { realmTransaction ->
