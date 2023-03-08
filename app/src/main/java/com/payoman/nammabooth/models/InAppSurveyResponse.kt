@@ -13,5 +13,12 @@ data class InAppSurvey(
     val options: MutableList<String>,
     val created_at: Date,
     val partyId: String,
-    val electionId: String
+    val electionId: String,
+    var selected: String?,
+)
+
+data class InAppSurveyResult(
+    var voterId: String,
+    var questionId: Int,
+    var answerSelected: String
 )

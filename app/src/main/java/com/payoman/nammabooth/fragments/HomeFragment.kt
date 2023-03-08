@@ -76,6 +76,9 @@ class HomeFragment : Fragment() {
             /*updateVoterPhoneCard.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToUpdatePhoneNumberFragment())
             }*/
+            reportsCard.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToReportsFragment())
+            }
             whatsappSurveyCard.setOnClickListener {
                 findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToSurveyFragment())
             }
@@ -93,6 +96,9 @@ class HomeFragment : Fragment() {
                     candidateImageContainer  to "candidateImageCard"
                 )
                 findNavController().navigate(R.id.action_homeFragment_to_candidateFragment, null, null, extras)
+            }
+            surveyCard.setOnClickListener {
+                findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToInAppSurveyFragment())
             }
         }
         sliderTimer.start()

@@ -1,10 +1,14 @@
 package com.payoman.nammabooth.fragments
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -53,7 +57,21 @@ class SplashFragment : Fragment() {
                 }
             }
         }
-        timer!!.start()
+        ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.WRITE_CONTACTS), 1)
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == 1) {
+            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                timer!!.start()
+            } else {
+                Toast.makeText(requireActivity(), "Permission denied!", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
     override fun onResume() {

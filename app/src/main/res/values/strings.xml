@@ -46,7 +46,7 @@
     <string name="candidate_urls">Candidate URLs</string>
     <string name="house_no">House No:</string>
     <string name="gender">Gender:</string>
-    <string name="age">Age:</string>
+    <string name="age">Age</string>
     <string name="father_name">Father Name:</string>
     <string name="family_tree_genealogy">Family Tree/ Genealogy</string>
     <string name="family_tree">Family Tree</string>
@@ -59,4 +59,13 @@
     <string name="sending_slip">Sending slip. Please wait!</string>
     <string name="whatsapp_survey">Voters Whatsapp Survey</string>
     <string name="previous_election_result_data">Previous election result data</string>
+    <string name="submit">Submit</string>
+    <string name="report">Reports</string>
+    <string name="no_reports_found">No Reports found:(</string>
+    <string name="no_survey_s_found">No Survey\'s found:(</string>
+    <string name="assembly_constituency">Assembly Constituency</string>
+    <string name="state">State</string>
+    <string name="polling_station">Polling Station</string>
+    <string name="gender_">Gender</string>
+    <string name="serial_no">Serial No</string>
 </resources>

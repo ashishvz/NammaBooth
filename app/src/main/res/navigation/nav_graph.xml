@@ -45,6 +45,12 @@
         <action
             android:id="@+id/action_homeFragment_to_surveyFragment"
             app:destination="@id/surveyFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_inAppSurveyFragment"
+            app:destination="@id/inAppSurveyFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_reportsFragment"
+            app:destination="@id/reportsFragment" />
     </fragment>
     <fragment
         android:id="@+id/splashFragment"
@@ -144,11 +150,27 @@
         android:id="@+id/inAppSurveyFragment"
         android:name="com.payoman.nammabooth.fragments.InAppSurveyFragment"
         android:label="InAppSurveyFragment"
-        tools:layout="@layout/fragment_voter_list"/>
+        tools:layout="@layout/fragment_voter_list">
+        <action
+            android:id="@+id/action_inAppSurveyFragment_to_inAppSurveyListFragment"
+            app:destination="@id/inAppSurveyListFragment" />
+    </fragment>
     <fragment
         android:id="@+id/inAppSurveyListFragment"
         android:name="com.payoman.nammabooth.fragments.InAppSurveyListFragment"
         android:label="InAppSurveyListFragment"
-        tools:layout="@layout/survey_card_layout"/>
+        tools:layout="@layout/survey_card_layout">
+
+        <argument
+            android:name="voterId"
+            app:argType="string"
+            app:nullable="false" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/reportsFragment"
+        android:name="com.payoman.nammabooth.fragments.ReportsFragment"
+        android:label="ReportsFragment"
+        tools:layout="@layout/fragment_report"/>
 
 </navigation>

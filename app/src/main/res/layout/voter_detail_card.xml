@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/voterIDText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/epilogue_bold"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="YTQ617263"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="26sp" />
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/voterIDText"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:dividerColor="@color/primary_dark" />
+
+                <LinearLayout
+                    android:id="@+id/nameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/epilogue_light"
+                        android:gravity="start"
+                        android:padding="10dp"
+                        android:text="Name"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/voterNameKan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:ellipsize="marquee"
+                            android:fontFamily="@font/epilogue_bold"
+                            android:gravity="start"
+                            android:maxLines="1"
+                            android:text="AshishKan"
+                            android:textColor="@color/primary_dark"
+                            android:textSize="16sp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/voterNameEn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:ellipsize="marquee"
+                            android:fontFamily="@font/epilogue_bold"
+                            android:gravity="start"
+                            android:maxLines="1"
+                            android:text="Ashish"
+                            android:textColor="@color/primary_dark"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ageLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/nameLayout"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/epilogue_light"
+                        android:gravity="start"
+                        android:padding="10dp"
+                        android:text="@string/age"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/voterAge"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/epilogue_bold"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:text="25"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/genderLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ageLayout"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/epilogue_light"
+                        android:gravity="start"
+                        android:padding="10dp"
+                        android:text="@string/gender_"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/voterGender"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/epilogue_bold"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:text="MALE"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/parentLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/genderLayout"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/epilogue_light"
+                        android:gravity="start"
+                        android:padding="10dp"
+                        android:text="Parent/Spouse"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/voterParentKan"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:ellipsize="marquee"
+                            android:fontFamily="@font/epilogue_bold"
+                            android:gravity="start"
+                            android:maxLines="1"
+                            android:text="AshishKan"
+                            android:textColor="@color/primary_dark"
+                            android:textSize="16sp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/voterParentEn"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:ellipsize="marquee"
+                            android:fontFamily="@font/epilogue_bold"
+                            android:gravity="start"
+                            android:maxLines="1"
+                            android:text="Ashish"
+                            android:textColor="@color/primary_dark"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/assConLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/parentLayout"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/epilogue_light"
+                        android:gravity="start"
+                        android:padding="10dp"
+                        android:text="@string/assembly_constituency"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/voterAssemblyConstituency"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/epilogue_bold"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:text="Bangalore"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/stateLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/assConLayout"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/epilogue_light"
+                        android:gravity="start"
+                        android:padding="10dp"
+                        android:text="@string/state"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/voterState"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/epilogue_bold"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:text="Karnataka"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/divider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/stateLayout"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:dividerColor="@color/primary_dark" />
+
+                <LinearLayout
+                    android:id="@+id/partNoLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider1"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/epilogue_light"
+                        android:gravity="start"
+                        android:padding="10dp"
+                        android:text="Part No"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/voterPartNo"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:ellipsize="marquee"
+                        android:fontFamily="@font/epilogue_bold"
+                        android:gravity="start"
+                        android:maxLines="1"
+                        android:text="1"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/partNameLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/partNoLayout"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.7"
+                        android:fontFamily="@font/epilogue_light"
+                        android:gravity="start"
+                        android:padding="10dp"
+                        android:text="Part Name"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/voterPartName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:fontFamily="@font/epilogue_bold"
+                        android:gravity="start"
+                        android:paddingBottom="10dp"
+                        android:text="Kasthuri Layout Kamalanagar 2nd Mainroad"
+                        android:textColor="@color/primary_dark"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
+                <com.google.android.material.divider.MaterialDivider
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/partNameLayout"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    app:dividerColor="@color/primary_dark" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/pollingStationText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/divider2"
+                    android:fontFamily="@font/epilogue_bold"
+                    android:gravity="center"
+                    android:padding="10dp"
+                    android:text="@string/polling_station"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="18sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/pollingName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/pollingStationText"
+                    android:fontFamily="@font/epilogue_light"
+                    android:gravity="start"
+                    android:padding="10dp"
+                    android:text="Name"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/pollingStationNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/pollingName"
+                    android:fontFamily="@font/epilogue_bold"
+                    android:gravity="start"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="aslkdnkldnsakldn aklmdkasdnkslnd laksdkaslndklasn akdklasdn"
+                    android:textColor="@color/primary_dark"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+        </ScrollView>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
